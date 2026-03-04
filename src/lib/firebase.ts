@@ -2,7 +2,6 @@ import { initializeApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
-// Replace these with your actual keys from the Firebase Console
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyDLH0LkBnAOib7WNEPEHCMn9i8EOpwtmik",
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "my-portfolio-message-c47e8.firebaseapp.com",
