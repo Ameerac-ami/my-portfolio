@@ -1,16 +1,64 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  const projects = [
+    {
+      title: "Dett - Quick Commerce",
+      desc: "A high-performance Quick Commerce platform featuring an Admin Panel and Web App landing page, powered by smooth AOS animations for a premium user experience.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Firebase"],
+      image: "/assets/images/dett.png",
+      links: [
+        { label: "Live Demo", url: "https://www.dett.app/" },
+        { label: "Dett Admin", url: "https://admin.dett.app/" }
+      ],
+    },
+    {
+      title: "Tegain",
+      desc: "An IT services platform where businesses request custom software solutions. I developed and refined user interfaces to provide a smooth and responsive user experience.",
+      tech: ["Next.js", "TypeScript", "Material UI", "Framer Motion", "AOS"],
+      image: "https://tegain-website-static-media-bucket.s3.ap-south-1.amazonaws.com/assets/images/26-06-2024/og-image.jpg",
+      links: [{ label: "Live Demo", url: "https://tegain.com/" }],
+    },
+    {
+      title: "HSS Thiruvampady",
+      desc: "A simple institutional website for Thiruvampady Higher Secondary School, featuring event management, gallery, and real-time notifications.",
+      tech: ["Next.js", "Tailwind CSS", "Vercel"],
+      image: "/assets/images/hss.png",
+      links: [{ label: "Live Demo", url: "https://www.hssthiruvampady.com/" }],
+    },
+    {
+      title: "Crypto Wallet",
+      desc: "Secure multi-chain wallet with hardware support and intuitive UI.",
+      tech: ["TypeScript", "Node.js", "AWS"],
+      image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=800&h=450",
+      links: [{ label: "Site", url: "https://www.crypto-wallet.com/" }],
+    },
+    // Add 5th project here if you have one, or I'll leave a placeholder for you
+    {
+      title: "DeFi Dashboard",
+      desc: "Real-time portfolio tracker and yield aggregator for multiple EVM networks.",
+      tech: ["React", "Ethers.js", "Web3Modal", "Chart.js"],
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800&h=450",
+      links: [{ label: "Coming Soon", url: "#" }],
+    },
+    {
+      title: "Artisan Marketplace",
+      desc: "A peer-to-peer marketplace for handmade goods with integrated payment processing.",
+      tech: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
+      image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800&h=450",
+      links: [{ label: "Coming Soon", url: "#" }],
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      // scroll logic if needed
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -35,7 +83,7 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
-  }, []);
+  }, [showAllProjects]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -69,6 +117,8 @@ export default function Home() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 3);
+
   return (
     <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden selection:bg-accent/30 selection:text-black">
       {/* Navbar */}
@@ -83,8 +133,11 @@ export default function Home() {
             <a href="#projects" className="hover:text-slate-900 transition-colors">Projects</a>
             <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
           </div>
-          <button className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-lg">
+          {/* <button className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-lg">
             Hire Me
+          </button> */}
+          <button onClick={() => window.location.href = "#contact"} className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-lg">
+            Let&apos;s Connect
           </button>
         </div>
       </nav>
@@ -97,30 +150,39 @@ export default function Home() {
         <div className="absolute bottom-1/4 right-1/4 -z-10 h-72 w-72 rounded-full bg-black/5 blur-[120px]"></div>
 
         <div className="flex max-w-4xl flex-col items-center text-center animate-fade-in">
-          <div
+          {/* <div
             className="mb-6 flex items-center gap-2 rounded-full border border-slate-200 bg-white/50 px-4 py-1.5 backdrop-blur-sm animate-slide-up"
             style={{ animationDelay: "0.1s" }}>
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
             </span>
-            <span className="text-xs font-medium text-slate-600 tracking-wider uppercase">
-              Available for new projects
+            <span className="text-xs font-medium text-slate-600 tracking-wider ">
+              Available for full-time and freelance opportunities
             </span>
-          </div>
+          </div> */}
 
-          <h1
+          {/* <h1
             className="mb-6 font-display text-4xl font-bold leading-tight text-black md:text-6xl animate-slide-up"
             style={{ animationDelay: "0.2s" }}>
             Building the Future of <br />
             <span className="text-gradient">Web3 & Modern Web</span>
+          </h1> */}
+          <p className="hero-kicker text-xs font-semibold uppercase tracking-[0.25em] text-black/70" style={{ translate: "none", rotate: "none", scale: "none", transform: "translate(0px, 0px)", opacity: "1", visibility: "inherit" }}>Frontend Engineer · React · Next.js</p>
+          <h1 className="mb-6 font-display text-3xl font-bold leading-tight text-black md:text-5xl animate-slide-up"
+            style={{ animationDelay: "0.2s" }}>
+            Building Modern, <br />
+            <span className="text-gradient"> High-Performance Web Experiences</span>
           </h1>
 
           <p
             className="mb-10 max-w-2xl text-lg leading-relaxed text-black/70 md:text-xl animate-slide-up"
             style={{ animationDelay: "0.3s" }}>
-            Senior Full Stack Developer specializing in creating high-performance, secure, and stunning
-            decentralized applications and modern web experiences.
+            {/* Senior Full Stack Developer specializing in creating high-performance, secure, and stunning
+            decentralized applications and modern web experiences. */}
+            {/* Frontend Developer specializing in creating high-performance, secure, and stunning
+            decentralized applications with React, Next.js, and modern web technologies, with a strong foundation in full-stack development. */}
+            I build responsive, scalable, and high-performance interfaces using React, Next.js, and modern web technologies, with a certified background in full-stack development.
           </p>
 
           <div
@@ -137,13 +199,24 @@ export default function Home() {
               Let&apos;s Talk
             </a>
           </div>
+           <div
+            className="mt-6 flex items-center gap-2 rounded-full border border-slate-200 bg-white/50 px-4 py-1.5 backdrop-blur-sm animate-slide-up"
+            style={{ animationDelay: "0.1s" }}>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            <span className="text-xs font-medium text-slate-600 tracking-wider ">
+              Available for full-time and freelance opportunities
+            </span>
+          </div>
         </div>
 
-        <div className="absolute bottom-10 animate-bounce">
+        {/* <div className="absolute bottom-10 animate-bounce">
           <svg className="h-6 w-6 text-slate-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
-        </div>
+        </div> */}
       </section>
 
       {/* About Section */}
@@ -153,9 +226,8 @@ export default function Home() {
             <h2 className="mb-6 font-display text-4xl font-bold text-slate-900">About Me</h2>
             <div className="space-y-4 text-lg text-slate-600">
               <p>
-                With over [X] years of experience in full-stack development, I've had the privilege of
-                working on diverse projects ranging from DeFi protocols to SaaS platforms.
-              </p>
+                I&apos;m Ameera, a frontend developer with 3+ years of experience crafting immersive digital experiences.
+                I specialize in turning product ideas and UI designs into robust, production-ready web applications using React, Next.js, and modern styling systems like Tailwind CSS and Material UI. </p>
               <p>
                 My approach combines technical excellence with a deep understanding of user experience,
                 ensuring that every line of code contributes to a seamless and engaging product.
@@ -163,21 +235,22 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-slate-200 bg-white/50 p-6 backdrop-blur-sm group hover:border-accent/40 transition-colors">
-              <div className="mb-4 text-3xl font-bold text-primary group-hover:text-accent transition-colors">Web3</div>
-              <p className="text-sm text-slate-500">Solidity, ethers.js, Hardhat, IPFS</p>
-            </div>
+
             <div className="rounded-2xl border border-slate-200 bg-white/50 p-6 backdrop-blur-sm group hover:border-accent/40 transition-colors">
               <div className="mb-4 text-3xl font-bold text-secondary group-hover:text-accent transition-colors">Frontend</div>
               <p className="text-sm text-slate-500">Next.js, React, Tailwind, Framer Motion</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white/50 p-6 backdrop-blur-sm group hover:border-accent/40 transition-colors">
-              <div className="mb-4 text-3xl font-bold text-accent">Backend</div>
-              <p className="text-sm text-slate-500">Node.js, PostgreSQL, Redis, GraphQL</p>
+              <div className="mb-4 text-3xl font-bold text-secondary group-hover:text-accent transition-colors">Backend</div>
+              <p className="text-sm text-slate-500">Python, Django, Node.js, PostgreSQL, Firebase, GraphQL</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white/50 p-6 backdrop-blur-sm group hover:border-accent/40 transition-colors">
-              <div className="mb-4 text-3xl font-bold text-slate-900 group-hover:text-accent transition-colors">Cloud</div>
-              <p className="text-sm text-slate-500">AWS, Vercel, Docker, CI/CD</p>
+              <div className="mb-4 text-3xl font-bold text-secondary group-hover:text-accent transition-colors">Cloud</div>
+              <p className="text-sm text-slate-500"> Vercel, CI/CD</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white/50 p-6 backdrop-blur-sm group hover:border-accent/40 transition-colors">
+              <div className="mb-4 text-3xl font-bold text-secondary group-hover:text-accent transition-colors">Tools</div>
+              <p className="text-sm text-slate-500">Git, GitHub, Postman, Figma, Material UI, Framer Motion</p>
             </div>
           </div>
         </div>
@@ -188,46 +261,16 @@ export default function Home() {
         <div className="mb-16 flex flex-col items-center text-center reveal">
           <h2 className="mb-4 font-display text-4xl font-bold text-slate-900">Featured Projects</h2>
           <p className="max-w-xl text-slate-600">
-            A selection of my recent work in Web3, DeFi, and modern web applications.
+            A selection of my recent work in E-commerce, and modern web applications.
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Dett - Quick Commerce",
-              desc: "A high-performance Quick Commerce platform featuring an Admin Panel and Web App landing page, powered by smooth AOS animations for a premium user experience.",
-              tech: ["Next.js", "TypeScript", "Tailwind CSS", "AOS", "Firebase"],
-              image: "/assets/images/dett.png",
-              link: "https://www.dett.app/",
-            },
-            {
-              title: "HSS Thiruvampady",
-              desc: "A simple institutional website for Thiruvampady Higher Secondary School, featuring event management, gallery, and real-time notifications.",
-              tech: ["Next.js", "Tailwind CSS", "Vercel"],
-              image: "/assets/images/hss.png",
-              link: "https://www.hssthiruvampady.com/",
-            },
-            {
-              title: "Tegain",
-              desc: "An IT services platform where businesses request custom software solutions. I developed and refined user interfaces to provide a smooth and responsive user experience.",
-              tech: ["Next.js", "TypeScript", "Material UI", "Framer Motion", "AOS"],
-              // image: "/assets/images/dashboard.png",
-              image: "https://tegain-website-static-media-bucket.s3.ap-south-1.amazonaws.com/assets/images/26-06-2024/og-image.jpg",
-              link: "https://tegain.com/",
-            },
-            {
-              title: "Crypto Wallet",
-              desc: "Secure multi-chain wallet with hardware support and intuitive UI.",
-              tech: ["TypeScript", "Node.js", "AWS"],
-              image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=800&h=450",
-              link: "https://www.crypto-wallet.com/",
-            },
-          ].map((project, i) => (
+          {displayedProjects.map((project, i) => (
             <div
               key={i}
               className="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-white transition-all hover:border-primary/50 hover:shadow-xl"
-              style={{ transitionDelay: `${i * 0.15}s` }}>
+              style={{ transitionDelay: `${i * 0.1}s` }}>
               <div className="relative aspect-video w-full overflow-hidden">
                 <img
                   src={project.image}
@@ -238,7 +281,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <h3 className="mb-2 text-xl font-bold text-slate-900">{project.title}</h3>
-                <p className="mb-4 text-sm text-slate-600">{project.desc}</p>
+                <p className="mb-4 text-sm text-slate-600 line-clamp-2">{project.desc}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tag, j) => (
                     <span
@@ -248,30 +291,53 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:gap-3 transition-all">
-                  View Project
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
+                <div className="flex flex-wrap gap-4">
+                  {project.links.map((link, k) => (
+                    <a
+                      key={k}
+                      href={link.url}
+                      target="_blank"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:gap-3 transition-all">
+                      {link.label}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
+
+        {projects.length > 3 && (
+          <div className="mt-16 flex justify-center reveal">
+            <button
+              onClick={() => setShowAllProjects(!showAllProjects)}
+              className="group flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-3 font-bold text-slate-900 transition-all hover:border-slate-400 hover:bg-slate-50">
+              {showAllProjects ? "Show Featured" : "View All Projects"}
+              <svg
+                className={`h-4 w-4 transition-transform duration-300 ${showAllProjects ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        )}
       </section>
 
       {/* CTA Section */}
       <section id="contact" className="reveal w-full max-w-4xl px-6 py-32">
         <div className="rounded-[2.5rem] border border-slate-200 bg-white/80 p-12 text-center backdrop-blur-xl shadow-lg relative overflow-hidden group">
-          <div className="absolute -top-24 -right-24 h-48 w-48 bg-accent/20 rounded-full blur-3xl group-hover:bg-accent/30 transition-colors"></div>
+          {/* <div className="absolute -top-24 -right-24 h-48 w-48 bg-accent/20 rounded-full blur-3xl group-hover:bg-accent/30 transition-colors"></div> */}
           <h2 className="mb-6 font-display text-4xl font-bold text-slate-900">Let&apos;s build something cool</h2>
           <p className="mb-10 text-lg text-slate-600 max-w-xl mx-auto">
             Currently open to new opportunities and interesting projects. Whether you have a question or
@@ -284,7 +350,7 @@ export default function Home() {
               Send an Email
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/ameera-c/"
               target="_blank"
               className="flex h-14 items-center justify-center rounded-xl border border-slate-200 bg-white px-8 font-bold text-slate-900 backdrop-blur-sm transition-all hover:bg-slate-50 hover:border-slate-400">
               LinkedIn
@@ -322,7 +388,7 @@ export default function Home() {
             <form
               onSubmit={handleSubmit}
               className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg backdrop-blur-xl">
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-1 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-slate-500">Name</label>
                   <input
@@ -332,7 +398,7 @@ export default function Home() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-primary focus:outline-none transition-colors focus:ring-4 focus:ring-primary/5"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -344,7 +410,7 @@ export default function Home() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-primary focus:outline-none transition-colors focus:ring-4 focus:ring-primary/5"
-                    placeholder="john@example.com"
+                    placeholder="name@example.com"
                   />
                 </div>
               </div>
@@ -393,12 +459,12 @@ export default function Home() {
           AMEERA<span className="text-primary">.</span>
         </div>
         <div className="flex justify-center gap-6 mb-8 text-sm font-medium">
-          <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors">Twitter</a>
-          <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors">GitHub</a>
-          <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors">LinkedIn</a>
+          {/* <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors">Twitter</a> */}
+          <a href="https://github.com/Ameerac-ami/" target="_blank" className="text-slate-400 hover:text-slate-900 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/ameera-c/" target="_blank" className="text-slate-400 hover:text-slate-900 transition-colors">LinkedIn</a>
         </div>
         <p className="text-xs text-slate-400">
-          © {new Date().getFullYear()} Ameera. Crafted with passion & Next.js.
+          © {new Date().getFullYear()} Ameera. Crafted with Next.js & Tailwind CSS.
         </p>
       </footer>
     </div>
