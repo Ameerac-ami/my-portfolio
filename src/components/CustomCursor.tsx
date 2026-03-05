@@ -66,7 +66,7 @@ export default function CustomCursor() {
                 style={{
                     left: trailingX,
                     top: trailingY,
-                    backgroundColor: "#34d399",
+                    backgroundColor: "#000000",
                     scale: isHovering ? 1.5 : 1,
                 }}
             />
@@ -80,12 +80,21 @@ export default function CustomCursor() {
                     scale: isMouseDown ? 0.8 : isHovering ? 1.5 : 1,
                 }}
             >
+
                 <motion.div
-                    className={`rounded-full border transition-colors duration-300 ${isHovering
-                            ? 'h-10 w-10 bg-accent/10 border-accent/40'
-                            : 'h-4 w-4 bg-accent/20 border-accent/60 shadow-[0_0_10px_rgba(52,211,153,0.3)]'
+                    className={`flex items-center justify-center rounded-full border transition-colors duration-300 ${isHovering
+                        ? 'h-8 w-8 bg-black/10 border-black/30'
+                        : 'h-4 w-4 bg-black/20 border-black/30 shadow-[0_0_10px_rgba(0,0,0,0.3)]'
                         }`}
-                />
+                >
+                    <motion.div
+                        className={`rounded-full border transition-colors duration-300 ${isHovering
+                            ? 'h-2 w-2 bg-black/10 border-black/20'
+                            : 'h-1 w-1 bg-black/20 border-black/20 shadow-[0_0_10px_rgba(0,0,0,0.3)]'
+                            }`}
+                    />
+                </motion.div>
+
             </motion.div>
         </div>
     );
