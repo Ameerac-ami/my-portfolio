@@ -71,60 +71,6 @@ export default function Home() {
 
   return (
     <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden selection:bg-accent/30 selection:text-black">
-      {/* Moving Background Elements */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        {/* Orbs */}
-        <div
-          className="parallax-orb animate-float h-[600px] w-[600px] bg-white/20"
-          style={{
-            top: "10%",
-            left: "-10%",
-            transform: `translate3d(0, ${scrollY * 0.1}px, 0)`,
-            animationDuration: '18s'
-          }}></div>
-        <div
-          className="parallax-orb animate-drift h-[450px] w-[450px] bg-emerald-500/10"
-          style={{
-            top: "40%",
-            right: "0%",
-            transform: `translate3d(0, ${scrollY * -0.12}px, 0)`,
-            animationDuration: '28s'
-          }}></div>
-
-        {/* Floating Boxes */}
-        <div
-          className="parallax-box h-40 w-40 opacity-20"
-          style={{
-            top: "20%",
-            right: "15%",
-            transform: `translate3d(0, ${scrollY * 0.2}px, 0) rotate(${scrollY * 0.05}deg)`,
-          }}></div>
-        <div
-          className="parallax-box h-60 w-60 opacity-10"
-          style={{
-            top: "60%",
-            left: "5%",
-            transform: `translate3d(0, ${scrollY * -0.08}px, 0) rotate(${scrollY * -0.03}deg)`,
-          }}></div>
-        <div
-          className="parallax-box h-32 w-32 opacity-15 border-emerald-500/10 bg-emerald-500/5"
-          style={{
-            bottom: "15%",
-            right: "20%",
-            transform: `translate3d(0, ${scrollY * 0.15}px, 0) rotate(${scrollY * 0.08}deg)`,
-          }}></div>
-
-        <div
-          className="parallax-orb animate-float h-[700px] w-[700px] bg-white/10"
-          style={{
-            bottom: "0%",
-            left: "20%",
-            transform: `translate3d(0, ${scrollY * 0.05}px, 0)`,
-            animationDuration: '22s',
-            animationDelay: '-4s'
-          }}></div>
-      </div>
-
       {/* Navbar */}
       <nav className="fixed top-0 z-50 w-full px-6 py-4">
         <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-slate-200 bg-white/70 px-6 py-3 backdrop-blur-md shadow-sm">
@@ -266,7 +212,8 @@ export default function Home() {
               title: "Tegain",
               desc: "An IT services platform where businesses request custom software solutions. I developed and refined user interfaces to provide a smooth and responsive user experience.",
               tech: ["Next.js", "TypeScript", "Material UI", "Framer Motion", "AOS"],
-              image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800&h=450",
+              // image: "/assets/images/dashboard.png",
+              image: "https://tegain-website-static-media-bucket.s3.ap-south-1.amazonaws.com/assets/images/26-06-2024/og-image.jpg",
               link: "https://tegain.com/",
             },
             {
