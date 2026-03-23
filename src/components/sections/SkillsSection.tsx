@@ -5,6 +5,10 @@ export default function SkillsSection() {
         {
             title: "Frontend",
             skills: [
+                "HTML5",
+                "CSS3",
+                "Bootstrap",
+                "JQuery",
                 "Next.js",
                 "React",
                 "Styled Components",
