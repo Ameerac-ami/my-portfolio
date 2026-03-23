@@ -33,10 +33,10 @@ const experiences = [
         period: "October 2020 - January 2021",
         type: "Full-time Trainee",
         description:
-            "Developed and maintained high-performance web applications using Django, focusing on robust backend architecture and seamless UX.",
+            "Developed and maintained high-performance web applications using Django, focusing on robust backend architecture and seamless UX using Angular.",
         achievements: [
-            "Engineered responsive and dynamic interfaces using Angular, Angular material and Bootstrap.",
-            "Implemented state management with Redux and elevated user experiences via Framer Motion & AOS animations.",
+            // "Engineered responsive and dynamic interfaces using Angular, Angular material and Bootstrap.",
+            // "Implemented state management with Redux and elevated user experiences via Framer Motion & AOS animations.",
         ],
     },
 ];
