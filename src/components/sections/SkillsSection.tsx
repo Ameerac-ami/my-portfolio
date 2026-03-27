@@ -148,7 +148,7 @@ export default function SkillsSection() {
             >
                 <motion.div
                     variants={itemVariants}
-                    className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/50 p-8 backdrop-blur-sm shadow-sm  hover:border-accent/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                    className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/50 p-8 backdrop-blur-sm shadow-sm  hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                 >
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-white transition-transform group-hover:scale-110">
                         <span className="text-xl font-bold">3+</span>
@@ -160,12 +160,12 @@ export default function SkillsSection() {
                         Proven track record of building production-ready web
                         applications with technical excellence.
                     </p>
-                    <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-accent/5 blur-2xl transition-all group-hover:bg-accent/10"></div>
+                    {/* <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-accent/5 blur-2xl transition-all group-hover:bg-accent/10"></div> */}
                 </motion.div>
 
                 <motion.div
                     variants={itemVariants}
-                    className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/50 p-8 backdrop-blur-sm shadow-sm  hover:border-accent/40 hover:shadow-xl hover:-translate-y-2 transition-all  duration-300"
+                    className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/50 p-8 backdrop-blur-sm shadow-sm  hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 transition-all  duration-300"
                 >
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-white transition-transform group-hover:scale-110">
                         <svg
@@ -189,12 +189,12 @@ export default function SkillsSection() {
                         Deeply specialized in Next.js, React, and TypeScript for
                         high-performance frontend solutions.
                     </p>
-                    <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-secondary/5 blur-2xl transition-all group-hover:bg-secondary/10"></div>
+                    {/* <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-secondary/5 blur-2xl transition-all group-hover:bg-secondary/10"></div> */}
                 </motion.div>
 
                 <motion.div
                     variants={itemVariants}
-                    className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/50 p-8 backdrop-blur-sm shadow-sm  hover:border-accent/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                    className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/50 p-8 backdrop-blur-sm shadow-sm  hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                 >
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-white transition-transform group-hover:scale-110">
                         <svg
@@ -219,7 +219,7 @@ export default function SkillsSection() {
                         backlog grooming. Closely work with backend developers
                         and UI designs to ensure seamless delivery.
                     </p>
-                    <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-accent/5 blur-2xl transition-all group-hover:bg-accent/10"></div>
+                    {/* <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-accent/5 blur-2xl transition-all group-hover:bg-accent/10"></div> */}
                 </motion.div>
             </motion.div>
 
@@ -235,7 +235,7 @@ export default function SkillsSection() {
                     <motion.div
                         key={i}
                         variants={itemVariants}
-                        className="rounded-3xl border border-slate-200 bg-white/50 p-8 shadow-sm hover:border-accent/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                        className="rounded-3xl border border-slate-200 bg-white/50 p-8 shadow-sm hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                     >
                         <div className="mb-6 flex items-center gap-4">
                             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-900 border border-slate-100">
