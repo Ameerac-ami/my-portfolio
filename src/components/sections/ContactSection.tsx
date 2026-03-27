@@ -24,9 +24,11 @@ export default function ContactSection() {
 			});
 			setSubmitStatus("success");
 			setFormData({ name: "", email: "", message: "" });
+			setTimeout(() => setSubmitStatus(null), 5000);
 		} catch (error) {
 			console.error("Error submitting form:", error);
 			setSubmitStatus("error");
+			setTimeout(() => setSubmitStatus(null), 5000);
 		} finally {
 			setIsSubmitting(false);
 		}
