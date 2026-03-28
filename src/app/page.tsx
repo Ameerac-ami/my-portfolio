@@ -67,7 +67,7 @@ export default function Home() {
                         </button>
                         <button
                             onClick={() => scrollToSection("contact")}
-                            className="flex h-14 items-center justify-center rounded-xl border border-black/10 bg-white/40 px-8 font-bold text-black backdrop-blur-sm transition-all hover:bg-white/60"
+                            className="flex h-14 items-center justify-center rounded-xl border border-black/10 bg-white/40 px-8 font-bold text-black backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/60"
                         >
                             Let&apos;s Talk
                         </button>
@@ -77,10 +77,10 @@ export default function Home() {
                         className="mt-12 flex items-center gap-2 rounded-full border border-slate-200 bg-white/50 px-4 py-1.5 backdrop-blur-sm animate-slide-up"
                         style={{ animationDelay: "0.5s" }}
                     >
-                        <span className="relative flex h-2 w-2">
+                        {/* <span className="relative flex h-2 w-2">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
                             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
-                        </span>
+                        </span> */}
                         <span className="text-xs font-medium text-slate-600 tracking-wider">
                             Available for full-time and freelance opportunities
                         </span>
