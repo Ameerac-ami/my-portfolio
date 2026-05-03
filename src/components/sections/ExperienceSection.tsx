@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const experiences = [
     {
         title: "Frontend Developer",
-        company: "Talrop",
+        company: "Tegain private limited",
         period: "January 2023 - Present",
         type: "Full-time",
         description:
