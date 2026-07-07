@@ -17,7 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-	title: "Ameera C| Frontend Developer",
+	title: "Ameera C │ Full Stack Developer",
 	description:
 		"Ameera – Frontend Developer specializing in React, Next.js, and modern UI development. Explore my projects, skills, and web development experience.",
 	keywords: [
@@ -25,6 +25,9 @@ export const metadata: Metadata = {
 		"React Developer",
 		"Next.js Developer",
 		"JavaScript Developer",
+		"Full Stack Developer",
+		"web development",
+		"React",
 		"Tailwind CSS",
 		"Web Developer Portfolio",
 	],
@@ -37,8 +40,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="scroll-smooth">
-			<body
-				className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
+			<body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
 				<CustomCursor />
 				<ScrollBackground />
 				<Navbar />
